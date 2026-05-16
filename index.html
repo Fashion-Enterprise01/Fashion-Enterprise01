@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FLU Jeans – Fashion Enterprise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:    #c0392b;
+      --dark:   #111111;
+      --light:  #f7f5f2;
+      --mid:    #e8e4df;
+      --accent: #c0392b;
+      --white:  #ffffff;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 40px;
+      background: rgba(0,0,0,0.92);
+      backdrop-filter: blur(6px);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .nav-logo .badge {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900; font-size: 13px; color: #fff;
+      letter-spacing: 1px;
+    }
+    .nav-logo span {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: 18px;
+      color: #fff; letter-spacing: 2px;
+    }
+    nav ul { list-style: none; display: flex; gap: 30px; }
+    nav ul a {
+      color: #ccc; text-decoration: none;
+      font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+      transition: color .2s;
+    }
+    nav ul a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 50%, #0a0a0a 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 120px 20px 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 40%, rgba(192,57,43,0.18) 0%, transparent 70%);
+    }
+    .hero-sub {
+      font-size: 12px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--red); margin-bottom: 20px; position: relative;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(52px, 10vw, 110px);
+      font-weight: 900; color: #fff;
+      letter-spacing: 6px; line-height: 1;
+      position: relative;
+    }
+    .hero h1 span { color: var(--red); }
+    .hero-tagline {
+      margin-top: 20px; font-size: 16px; font-weight: 300;
+      color: #aaa; letter-spacing: 3px; text-transform: uppercase;
+      position: relative;
+    }
+    .hero-btn {
+      margin-top: 40px; position: relative;
+      display: inline-block; padding: 14px 40px;
+      background: var(--red); color: #fff;
+      text-decoration: none; font-size: 13px;
+      letter-spacing: 2px; text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif; font-weight: 600;
+      transition: background .25s, transform .2s;
+    }
+    .hero-btn:hover { background: #a93226; transform: translateY(-2px); }
+
+    /* ── SECTION WRAPPER ── */
+    section { padding: 90px 40px; }
+    .section-label {
+      font-size: 11px; letter-spacing: 5px; text-transform: uppercase;
+      color: var(--red); margin-bottom: 10px;
+    }
+    h2.section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900; line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+      display: flex; flex-wrap: wrap; gap: 60px;
+      align-items: center; justify-content: center;
+    }
+    .about-text { max-width: 560px; }
+    .about-text p {
+      font-size: 16px; line-height: 1.8; color: #444;
+      margin-bottom: 16px;
+    }
+    .about-brand {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .brand-box {
+      background: var(--red);
+      padding: 18px 32px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .brand-box .ff {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px; font-weight: 900; color: #fff;
+    }
+    .brand-box .flu {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 34px; font-weight: 900; color: #fff;
+      letter-spacing: 4px;
+    }
+    .brand-caption {
+      font-size: 11px; letter-spacing: 3px;
+      text-transform: uppercase; color: #888;
+    }
+
+    /* ── PRODUCTS ── */
+    #products {
+      background: var(--dark);
+      text-align: center;
+    }
+    #products .section-label { color: #e07b72; }
+    #products h2.section-title { color: #fff; }
+    #products .products-intro {
+      color: #aaa; font-size: 15px; max-width: 600px;
+      margin: 0 auto 50px; line-height: 1.7;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; max-width: 1000px; margin: 0 auto 20px;
+    }
+    .product-card {
+      background: #1c1c1c;
+      border: 1px solid #2e2e2e;
+      border-top: 3px solid var(--red);
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform .2s, border-color .2s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      border-top-color: #e07b72;
+    }
+    .product-card .icon { font-size: 30px; margin-bottom: 12px; }
+    .product-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px; font-weight: 700;
+      color: #fff; letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .products-note {
+      color: var(--red); font-size: 14px;
+      letter-spacing: 2px; text-transform: uppercase;
+      margin-top: 30px;
+    }
+
+    /* ── INSTAGRAM GALLERY ── */
+    #gallery {
+      background: #111;
+      text-align: center;
+      padding: 90px 20px;
+    }
+    #gallery .section-label { color: #e07b72; }
+    #gallery h2.section-title { color: #fff; }
+    .gallery-intro {
+      color: #999; font-size: 15px; max-width: 540px;
+      margin: 0 auto 48px; line-height: 1.7;
+    }
+    .gallery-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      align-items: start;
+    }
+    /* Instagram embed card */
+    .ig-embed-card {
+      background: #1a1a1a;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+      width: 380px;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
+    .ig-embed-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .ig-embed-card iframe {
+      width: 100%; border: none; display: block;
+      min-height: 560px;
+    }
+    @media (max-width: 500px) {
+      .ig-embed-card { width: 100%; }
+    }
+    /* Branded product card */
+    .ig-product-card {
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #2a2a2a;
+      display: flex; flex-direction: column;
+      min-height: 280px;
+      transition: transform .25s, box-shadow .25s;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .ig-product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+    .igp-top {
+      flex: 1;
+      background: linear-gradient(135deg, #1c0a0a 0%, #2a1010 50%, #1c0a0a 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 30px 20px;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .igp-top::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(192,57,43,0.15) 0%, transparent 70%);
+    }
+    .igp-icon { font-size: 44px; position: relative; }
+    .igp-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px; font-weight: 800;
+      color: #fff; letter-spacing: 2px;
+      text-transform: uppercase; position: relative;
+      text-align: center;
+    }
+    .igp-bottom {
+      background: #c0392b;
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+    }
+    .igp-bottom svg { width: 18px; height: 18px; fill: #fff; flex-shrink: 0; }
+    .igp-cta {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px; font-weight: 700;
+      color: #fff; letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+    /* follow banner */
+    .gallery-follow {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      padding: 14px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: opacity .2s, transform .2s;
+    }
+    .gallery-follow:hover { opacity: 0.9; transform: translateY(-2px); }
+    .gallery-follow svg { width: 22px; height: 22px; fill: #fff; }
+    .gallery-follow span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px; font-weight: 700;
+      color: #fff; letter-spacing: 1px;
+    }
+
+    /* ── WHY ── */
+    #why {
+      background: var(--mid);
+      text-align: center;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px; max-width: 900px; margin: 0 auto;
+    }
+    .why-card {
+      background: var(--white);
+      padding: 36px 24px; text-align: center;
+      border-bottom: 4px solid transparent;
+      transition: border-color .2s, transform .2s;
+    }
+    .why-card:hover { border-bottom-color: var(--red); transform: translateY(-4px); }
+    .why-card .icon { font-size: 36px; margin-bottom: 16px; }
+    .why-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px; font-weight: 700;
+      margin-bottom: 10px; text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .why-card p { font-size: 14px; color: #666; line-height: 1.7; }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: #0d0d0d;
+      text-align: center;
+      padding: 90px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute; top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(192,57,43,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #contact .section-label { color: #e07b72; }
+    #contact h2.section-title { color: #fff; margin-bottom: 50px; }
+
+    /* contact info tiles */
+    .contact-tiles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto 50px;
+    }
+    .ctile {
+      background: #161616;
+      border: 1px solid #252525;
+      border-radius: 12px;
+      padding: 32px 24px;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 14px;
+      transition: border-color .25s, transform .25s;
+      text-decoration: none;
+    }
+    .ctile:hover { border-color: #c0392b; transform: translateY(-4px); }
+    .ctile-icon {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #c0392b;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ctile-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .ctile-icon.green { background: #25D366; }
+    .ctile-icon.blue  { background: #1a3a8a; }
+    .ctile-icon.insta { background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045); }
+    .ctile-label {
+      font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: #666;
+    }
+    .ctile-value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px; font-weight: 800;
+      color: #fff; text-align: center; line-height: 1.4;
+    }
+    .ctile-value a { color: inherit; text-decoration: none; }
+
+    /* address block */
+    .contact-address-block {
+      background: #161616;
+      border: 1px solid #252525;
+      border-radius: 12px;
+      max-width: 500px;
+      margin: 0 auto 44px;
+      padding: 30px 32px;
+      display: flex; gap: 20px; align-items: flex-start;
+      text-align: left;
+    }
+    .addr-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #c0392b; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .addr-icon svg { width: 22px; height: 22px; fill: #fff; }
+    .addr-text { flex: 1; }
+    .addr-text .addr-company {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 800;
+      color: #fff; letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: underline; text-underline-offset: 4px;
+      margin-bottom: 8px;
+    }
+    .addr-text p {
+      font-size: 13.5px; color: #aaa; line-height: 1.9;
+    }
+    .addr-text strong { color: #ddd; }
+
+    /* distributor areas strip */
+    .dist-strip {
+      background: #c0392b;
+      border-radius: 10px;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 18px 28px;
+      display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: center;
+      gap: 8px 0;
+    }
+    .dist-strip-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 900;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 4px; text-transform: uppercase;
+      margin-right: 16px; white-space: nowrap;
+    }
+    .dist-strip-cities {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700;
+      color: #fff; letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .cards-stack { display: none; } /* hide old card layout */
+
+    /* ── FRONT CARD ── */
+    .card-front {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      background: #111;
+      position: relative;
+    }
+    .card-front-top {
+      background: linear-gradient(160deg, #1a1a1a 0%, #2a0a0a 40%, #1a1a1a 100%);
+      padding: 30px 30px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    /* denim corner triangles */
+    .card-front-top::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      border-style: solid;
+      border-width: 0 90px 90px 0;
+      border-color: transparent rgba(40,40,60,0.8) transparent transparent;
+    }
+    .card-front-top::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      border-style: solid;
+      border-width: 70px 0 0 70px;
+      border-color: transparent transparent transparent rgba(40,40,60,0.6);
+    }
+    .cf-logo-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .cf-logo-box {
+      display: flex;
+      align-items: stretch;
+      border: 2px solid #c9a255;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .cf-logo-icon {
+      background: #c9a255;
+      padding: 6px 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cf-logo-icon svg { width: 22px; height: 22px; fill: #111; }
+    .cf-logo-mid {
+      padding: 6px 14px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .cf-logo-flu {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 28px; font-weight: 900;
+      color: #fff; letter-spacing: 2px;
+    }
+    .cf-logo-year {
+      font-size: 9px; font-weight: 700;
+      color: #c9a255; line-height: 1.2;
+      align-self: flex-start;
+      margin-top: 4px;
+    }
+    .cf-jeans-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 10px;
+      color: #c9a255;
+      text-transform: uppercase;
+    }
+    .card-front-bottom {
+      background: #0d0d0d;
+      border-top: 1px solid #2a2a2a;
+      padding: 14px 24px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cf-dist-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px; font-weight: 900;
+      color: #c0392b;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-align: left;
+    }
+    .cf-separator {
+      height: 1px;
+      background: linear-gradient(90deg, #c0392b, transparent);
+      margin: 2px 0;
+    }
+    .cf-dist-cities {
+      font-size: 12.5px;
+      color: #ddd;
+      letter-spacing: 0.5px;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    /* ── BACK CARD ── */
+    .card-back {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      background: #fff;
+      display: flex;
+      position: relative;
+    }
+    /* corner denim accents */
+    .card-back::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      border-style: solid;
+      border-width: 52px 52px 0 0;
+      border-color: #1a2a4a transparent transparent transparent;
+      opacity: 0.25;
+    }
+    .card-back::after {
+      content: '';
+      position: absolute; bottom: 0; right: 0;
+      border-style: solid;
+      border-width: 0 0 52px 52px;
+      border-color: transparent transparent #1a2a4a transparent;
+      opacity: 0.2;
+    }
+    .cb-logo-col {
+      width: 90px;
+      flex-shrink: 0;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 10px;
+      border-right: 1px solid #eee;
+    }
+    .cb-brand-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      border-radius: 4px;
+      overflow: hidden;
+      width: 62px;
+    }
+    .cb-badge-top {
+      background: #c0392b;
+      width: 100%;
+      padding: 7px 4px 4px;
+      text-align: center;
+    }
+    .cb-badge-top svg { width: 28px; height: 28px; fill: #fff; }
+    .cb-badge-bottom {
+      background: #1a3060;
+      width: 100%;
+      padding: 4px 4px 6px;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .cb-badge-bottom .cb-brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9.5px; font-weight: 900;
+      color: #fff; letter-spacing: 1px;
+    }
+    .cb-badge-bottom .cb-brand-sub {
+      font-size: 7px; color: rgba(255,255,255,0.7);
+      letter-spacing: 0.5px; display: block; margin-top: 1px;
+    }
+    .cb-badge-bottom .cb-badge-year {
+      font-size: 9px; font-weight: 700;
+      color: #fff; display: block; margin-top: 2px;
+    }
+    .cb-info-col {
+      flex: 1;
+      padding: 22px 22px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-left: 3px solid #1a3060;
+    }
+    .cb-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 17px; font-weight: 800;
+      color: #111;
+      margin-bottom: 2px;
+    }
+    .cb-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: #222;
+      line-height: 1.5;
+    }
+    .cb-row .cb-ico {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .cb-ico-wa { background: #25D366; }
+    .cb-ico-wa svg { width: 12px; height: 12px; fill: #fff; }
+    .cb-ico-mail { background: #555; }
+    .cb-ico-mail svg { width: 11px; height: 11px; fill: #fff; }
+    .cb-ico-pin { background: #c0392b; }
+    .cb-ico-pin svg { width: 10px; height: 10px; fill: #fff; }
+    .cb-row a { color: #111; text-decoration: none; }
+    .cb-row a:hover { color: #c0392b; }
+    .cb-company {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12.5px; font-weight: 800;
+      color: #111;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .cb-addr {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.7;
+    }
+    .cb-addr strong { color: #111; }
+
+    /* ── FLU JNS SQUARE LOGO ── */
+    /* Large – used in About & front card */
+    .flu-logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: stretch;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+      width: 130px;
+    }
+    .flu-logo-top {
+      background: #c0392b;
+      display: flex; align-items: center; justify-content: center;
+      padding: 14px 10px 10px;
+    }
+    .flu-logo-top svg { width: 64px; height: 54px; }
+    .flu-logo-bottom {
+      background: #1a2a6c;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 10px 8px 12px;
+      gap: 2px;
+    }
+    .flu-logo-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px; font-weight: 900;
+      color: #fff; letter-spacing: 2px;
+      line-height: 1;
+    }
+    .flu-logo-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 7.5px; font-weight: 600;
+      color: #ccd; letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .flu-logo-year {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px; font-weight: 700;
+      color: #fff; letter-spacing: 2px;
+      margin-top: 2px;
+    }
+
+    /* Small – navbar */
+    .flu-logo-sm {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: stretch;
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+      width: 38px;
+    }
+    .flu-logo-sm .flu-logo-top { padding: 4px 3px 3px; }
+    .flu-logo-sm .flu-logo-top svg { width: 22px; height: 18px; }
+    .flu-logo-sm .flu-logo-bottom { padding: 3px 3px 4px; gap: 1px; }
+    .flu-logo-sm .flu-logo-name { font-size: 7px; letter-spacing: 0.5px; }
+    .flu-logo-sm .flu-logo-sub { display: none; }
+    .flu-logo-sm .flu-logo-year { font-size: 5px; margin-top: 0; }
+
+    /* Medium – back card badge */
+    .flu-logo-md {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: stretch;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      width: 72px;
+    }
+    .flu-logo-md .flu-logo-top { padding: 10px 6px 7px; }
+    .flu-logo-md .flu-logo-top svg { width: 38px; height: 32px; }
+    .flu-logo-md .flu-logo-bottom { padding: 7px 5px 8px; gap: 1px; }
+    .flu-logo-md .flu-logo-name { font-size: 13px; letter-spacing: 1px; }
+    .flu-logo-md .flu-logo-sub { font-size: 5.5px; letter-spacing: 1.5px; }
+    .flu-logo-md .flu-logo-year { font-size: 9px; margin-top: 1px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080808;
+      text-align: center; padding: 24px 20px;
+      font-size: 12px; color: #555; letter-spacing: 1px;
+    }
+    footer span { color: var(--red); }
+
+    /* ── HAMBURGER BUTTON ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+      z-index: 200;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all .3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── TABLET (max 900px) ── */
+    @media (max-width: 900px) {
+      nav { padding: 12px 24px; }
+      nav ul { gap: 18px; }
+      nav ul a { font-size: 11px; letter-spacing: 1px; }
+
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+
+      .contact-tiles { grid-template-columns: repeat(3, 1fr); }
+
+      .dist-strip { padding: 14px 20px; }
+    }
+
+    /* ── MOBILE (max 640px) ── */
+    @media (max-width: 640px) {
+
+      /* NAV */
+      nav {
+        padding: 12px 18px;
+        position: fixed;
+      }
+      .nav-hamburger { display: flex; }
+      nav ul {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0;
+        background: rgba(0,0,0,0.97);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        height: 100vh;
+        z-index: 150;
+      }
+      nav ul.open { display: flex; }
+      nav ul a {
+        font-size: 16px;
+        letter-spacing: 3px;
+      }
+
+      /* SECTIONS */
+      section { padding: 60px 18px; }
+      #gallery  { padding: 60px 16px; }
+      #contact  { padding: 60px 16px; }
+
+      /* HERO */
+      .hero { padding: 110px 18px 50px; }
+      .hero-sub { font-size: 10px; letter-spacing: 3px; }
+      .hero h1 { font-size: clamp(42px, 14vw, 72px); letter-spacing: 3px; }
+      .hero-tagline { font-size: 11px; letter-spacing: 2px; }
+      .hero-btn { padding: 12px 28px; font-size: 11px; }
+
+      /* ABOUT */
+      #about { flex-direction: column; gap: 36px; padding: 60px 18px; }
+      .about-text { max-width: 100%; }
+      .about-text p { font-size: 14px; }
+
+      /* PRODUCTS */
+      .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .product-card { padding: 20px 14px; }
+      .product-card .icon { font-size: 24px; margin-bottom: 8px; }
+      .product-card h3 { font-size: 11px; }
+
+      /* GALLERY */
+      .gallery-grid { gap: 18px; }
+      .ig-embed-card { width: 100%; border-radius: 10px; }
+      .ig-embed-card iframe { min-height: 480px; }
+      .gallery-follow { padding: 12px 20px; border-radius: 40px; }
+      .gallery-follow span { font-size: 12px; }
+
+      /* WHY */
+      .why-grid { grid-template-columns: 1fr; gap: 16px; max-width: 420px; margin: 0 auto; }
+
+      /* CONTACT */
+      .contact-tiles { grid-template-columns: 1fr; gap: 14px; max-width: 380px; margin: 0 auto 32px; }
+      .ctile { padding: 22px 20px; flex-direction: row; text-align: left; gap: 16px; }
+      .ctile-label { font-size: 9px; }
+      .ctile-value { font-size: 14px; }
+      .ctile-icon { width: 44px; height: 44px; flex-shrink: 0; }
+
+      .contact-address-block { flex-direction: column; gap: 14px; padding: 24px 20px; text-align: left; }
+      .addr-text p { font-size: 13px; }
+
+      .dist-strip { flex-direction: column; gap: 8px; padding: 16px 18px; border-radius: 8px; }
+      .dist-strip-label { margin-right: 0; }
+      .dist-strip-cities { font-size: 12px; line-height: 1.9; }
+
+      /* FLU LOGO (About section) */
+      .flu-logo { width: 100px; }
+      .flu-logo .flu-logo-top svg { width: 50px; height: 42px; }
+      .flu-logo .flu-logo-name { font-size: 17px; }
+      .flu-logo .flu-logo-sub { font-size: 6px; }
+      .flu-logo .flu-logo-year { font-size: 10px; }
+
+      /* SECTION TITLES */
+      h2.section-title { font-size: clamp(22px, 7vw, 34px); margin-bottom: 18px; }
+      .section-label { font-size: 10px; letter-spacing: 3px; }
+    }
+
+    /* ── SMALL MOBILE (max 380px) ── */
+    @media (max-width: 380px) {
+      .hero h1 { font-size: 38px; }
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .product-card h3 { font-size: 10px; }
+      .ctile { padding: 18px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <div class="flu-logo flu-logo-sm">
+        <div class="flu-logo-top">
+          <svg viewBox="0 0 64 54" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="4" width="10" height="46" rx="1" fill="white"/>
+            <rect x="8" y="4" width="38" height="9" rx="1" fill="white"/>
+            <rect x="8" y="22" width="28" height="8" rx="1" fill="white"/>
+            <rect x="44" y="2" width="16" height="6" rx="1" fill="white" opacity="0.5"/>
+            <rect x="46" y="11" width="14" height="5" rx="1" fill="white" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="flu-logo-bottom">
+          <span class="flu-logo-name">FLU JNS</span>
+          <span class="flu-logo-sub">Designer Wear</span>
+          <span class="flu-logo-year">1992</span>
+        </div>
+      </div>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
+      <li><a href="#about"    onclick="closeMenu()">About</a></li>
+      <li><a href="#products" onclick="closeMenu()">Products</a></li>
+      <li><a href="#gallery"  onclick="closeMenu()">Gallery</a></li>
+      <li><a href="#why"      onclick="closeMenu()">Why FLU</a></li>
+      <li><a href="#contact"  onclick="closeMenu()">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-sub">Distributor · Aligarh</p>
+    <h1>FLU<span>JEANS</span></h1>
+    <p class="hero-tagline">Style That Moves With You</p>
+    <a href="#contact" class="hero-btn">Get in Touch</a>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-text">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-title">Fashion Enterprise<br>— Official Distributor</h2>
+      <p>
+        Fashion Enterprise is the authorised distributor of <strong>FLU Jeans</strong> — a brand built for those
+        who wear confidence as easily as denim. Based in the heart of Aligarh, we bring premium quality
+        jeans to retailers and customers across the region.
+      </p>
+      <p>
+        From classic cuts to contemporary fits, FLU Jeans stands for craftsmanship, durability, and style
+        that never goes out of fashion.
+      </p>
+      <p>
+        Contact our representative <strong>Khemendra Gupta</strong> to place orders or learn more about our collection.
+      </p>
+    </div>
+    <div class="about-brand">
+      <div class="flu-logo">
+        <div class="flu-logo-top">
+          <svg viewBox="0 0 64 54" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="4" width="10" height="46" rx="1" fill="white"/>
+            <rect x="8" y="4" width="38" height="9" rx="1" fill="white"/>
+            <rect x="8" y="22" width="28" height="8" rx="1" fill="white"/>
+            <rect x="44" y="2" width="16" height="6" rx="1" fill="white" opacity="0.5"/>
+            <rect x="46" y="11" width="14" height="5" rx="1" fill="white" opacity="0.4"/>
+          </svg>
+        </div>
+        <div class="flu-logo-bottom">
+          <span class="flu-logo-name">FLU JNS</span>
+          <span class="flu-logo-sub">Designer Wear</span>
+          <span class="flu-logo-year">1992</span>
+        </div>
+      </div>
+      <p class="brand-caption" style="margin-top:12px;">Official Brand · Since 1992</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <p class="section-label">Our Collection</p>
+    <h2 class="section-title" style="color:#fff;">What FLU Makes</h2>
+    <p class="products-intro">
+      A complete range of premium bottom wear, casuals, and ethnic wear — crafted with imported fabric and built to last.
+    </p>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="icon">👖</div>
+        <h3>Stylish Jeans</h3>
+      </div>
+      <div class="product-card">
+        <div class="icon">🧶</div>
+        <h3>Comfort Trousers</h3>
+      </div>
+      <div class="product-card">
+        <div class="icon">🪖</div>
+        <h3>Zen G Cargo</h3>
+      </div>
+      <div class="product-card">
+        <div class="icon">✨</div>
+        <h3>Official Cordrise</h3>
+      </div>
+      <div class="product-card">
+        <div class="icon">🧵</div>
+        <h3>Imported Fabric<br>Bottom Wear</h3>
+      </div>
+      <div class="product-card">
+        <div class="icon">👔</div>
+        <h3>Formal &amp; Casual Shirts</h3>
+      </div>
+      <div class="product-card">
+        <div class="icon">🎽</div>
+        <h3>Kurta Pajama<br><small style="font-size:11px;font-weight:400;color:#aaa;">(Basic &amp; Party Wear)</small></h3>
+      </div>
+      <div class="product-card">
+        <div class="icon">👦</div>
+        <h3>Boys Jeans &amp; Trousers<br><small style="font-size:11px;font-weight:400;color:#aaa;">(Baba Papa Range)</small></h3>
+      </div>
+    </div>
+    <p class="products-note">✦ &nbsp;And Many More Items Available &nbsp;✦</p>
+  </section>
+
+  <!-- INSTAGRAM GALLERY -->
+  <section id="gallery">
+    <p class="section-label">Latest Arrivals</p>
+    <h2 class="section-title" style="color:#fff;">New Stock — Fresh Drops</h2>
+    <p class="gallery-intro">
+      Straight from the FLU collection. DM us on Instagram to order or enquire about any product.
+    </p>
+
+    <div class="gallery-grid">
+
+      <!-- Embed Post 1 -->
+      <div class="ig-embed-card">
+        <iframe
+          src="https://www.instagram.com/p/DXLnjnpEmBS/embed/"
+          frameborder="0" scrolling="no"
+          allowtransparency="true" loading="lazy"
+        ></iframe>
+      </div>
+
+      <!-- Embed Post 2 -->
+      <div class="ig-embed-card">
+        <iframe
+          src="https://www.instagram.com/p/DXd0H9BEmzh/embed/"
+          frameborder="0" scrolling="no"
+          allowtransparency="true" loading="lazy"
+        ></iframe>
+      </div>
+
+    </div>
+
+    <a class="gallery-follow" href="https://www.instagram.com/flujnsofficial/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span>Follow @flujnsofficial — 360 Posts &amp; Growing</span>
+    </a>
+  </section>
+
+  <!-- WHY -->
+  <section id="why">
+    <p class="section-label">Why Choose Us</p>
+    <h2 class="section-title" style="text-align:center;">Built Different.<br>Worn Better.</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">🚚</div>
+        <h3>Reliable Distribution</h3>
+        <p>As official distributors, we ensure timely supply to retailers across Aligarh and surrounding areas.</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">🤝</div>
+        <h3>Trusted Partnership</h3>
+        <p>We work closely with retailers to provide the right product mix, pricing, and ongoing support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label">Reach Us</p>
+    <h2 class="section-title">Let's Connect</h2>
+
+    <!-- Contact Tiles -->
+    <div class="contact-tiles">
+
+      <a class="ctile" href="tel:8057404443">
+        <div class="ctile-icon green">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <span class="ctile-label">WhatsApp / Call</span>
+        <span class="ctile-value">+91 80574 04443</span>
+      </a>
+
+      <a class="ctile" href="mailto:khemendragupta@gmail.com">
+        <div class="ctile-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <span class="ctile-label">Email</span>
+        <span class="ctile-value">khemendragupta<br>@gmail.com</span>
+      </a>
+
+      <a class="ctile" href="https://www.instagram.com/flujnsofficial/" target="_blank" rel="noopener">
+        <div class="ctile-icon insta">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <span class="ctile-label">Instagram</span>
+        <span class="ctile-value">@flujnsofficial</span>
+      </a>
+
+    </div>
+
+    <!-- Address Block -->
+    <div class="contact-address-block">
+      <div class="addr-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div class="addr-text">
+        <div class="addr-company">M/S Fashion Enterprises</div>
+        <p>
+          Basement, Dubey Ji Ka Kucha<br>
+          (In front of Deepam Hosiery Gali)<br>
+          Near Tanga Stand, <strong>Railway Road</strong><br>
+          <strong>ALIGARH – 202001</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- Distributor Strip -->
+    <div class="dist-strip">
+      <span class="dist-strip-label">Distributor</span>
+      <span class="dist-strip-cities">
+        Aligarh &nbsp;·&nbsp; Hathras &nbsp;·&nbsp; Mathura &nbsp;·&nbsp; Kasganj &nbsp;·&nbsp; Etah &nbsp;·&nbsp; Bulandshahr &nbsp;·&nbsp; Budaun
+      </span>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 <span>Fashion Enterprise</span> — FLU Jeans Distributor, Aligarh &nbsp;·&nbsp; Crafted with pride
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu   = document.getElementById('nav-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('open');
+      document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      navMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  </script>
+</body>
+</html>
